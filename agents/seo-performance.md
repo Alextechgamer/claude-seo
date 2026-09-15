@@ -1,7 +1,6 @@
 ---
 name: seo-performance
 description: Performance analyzer. Measures and evaluates Core Web Vitals and page load performance.
-model: sonnet
 maxTurns: 35
 tools: Read, Bash, Write
 ---

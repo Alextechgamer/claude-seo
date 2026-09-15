@@ -21,8 +21,11 @@ canonical form used by every skill and agent. Claude Code expands
 found without any `PATH` entry; the repository ships no top-level `bin/`
 directory because hosted marketplaces reject one. Repository users run
 `./scripts/claude-seo`; manual installers rewrite the canonical form to
-`"$HOME/.claude/skills/seo/scripts/claude-seo"`. Never invoke bundled scripts
-with a bare Python interpreter.
+`"$HOME/.claude/skills/seo/scripts/claude-seo"`. Hermes installs
+(`install-hermes.sh`) rewrite it to `./scripts/hermes-seo` under
+`$HERMES_HOME` and drop `model: opus` / `model: sonnet` pins so specialists
+inherit the current Hermes session model. Never invoke bundled scripts
+with a bare Python interpreter. On Hermes, also follow repo-root `HERMES.md`.
 
 Comprehensive SEO analysis across all industries (SaaS, local services,
 e-commerce, publishers, agencies). Orchestrates 24 sub-skills (21 core + 1 framework

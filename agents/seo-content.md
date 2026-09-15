@@ -1,7 +1,6 @@
 ---
 name: seo-content
 description: Content quality reviewer. Evaluates E-E-A-T signals, readability, content depth, AI citation readiness, and thin content detection.
-model: opus
 maxTurns: 45
 tools: Read, Bash, Write, Grep
 ---

@@ -4,7 +4,8 @@
 
 - **Python 3.10+** with pip
 - **Git** for cloning the repository
-- **Claude Code CLI** installed and configured
+- **Claude Code CLI** installed and configured (Claude Code path only)
+- **or Hermes Agent** (`hermes` on PATH) for the any-model path — see [HERMES.md](../HERMES.md)
 
 Optional:
 - **Playwright Chromium** - install.sh attempts this automatically; failure is non-fatal; needed only for SPA rendering and screenshots
@@ -40,6 +41,20 @@ cat install.sh        # review
 bash install.sh       # run when satisfied
 rm install.sh
 ```
+
+### Hermes Agent (any model)
+
+Does not require Claude Code or an Anthropic account. From this fork:
+
+```bash
+git clone --branch hermes https://github.com/Alextechgamer/claude-seo.git
+cd claude-seo
+bash install-hermes.sh
+```
+
+Optional: `bash install-hermes.sh --skip-browser` skips Playwright Chromium.
+Uninstall with `bash uninstall-hermes.sh`. Then start a new Hermes chat and
+run `/seo audit https://example.com`. Details: [HERMES.md](../HERMES.md).
 
 ### Manual Install (Windows, PowerShell)
 

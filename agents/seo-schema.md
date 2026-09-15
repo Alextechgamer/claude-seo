@@ -1,7 +1,6 @@
 ---
 name: seo-schema
 description: Schema markup expert. Detects, validates, and generates Schema.org structured data in JSON-LD format.
-model: sonnet
 maxTurns: 35
 tools: Read, Bash, Write
 ---

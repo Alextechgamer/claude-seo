@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Hermes entry point for the bundled Claude SEO runtime.
+# Pins the managed venv + Playwright cache under $HERMES_HOME so a git
+# checkout never grows a .venv, and so any LLM Hermes is running
+# (Grok, Claude, GPT, Gemini, local, ...) can call the same scripts.
+#
+# Skills should invoke this wrapper, not a bare Python interpreter.
+
+launcher_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+hermes_home="${HERMES_HOME:-$HOME/.hermes}"
+export CLAUDE_SEO_DATA_DIR="${CLAUDE_SEO_DATA_DIR:-${hermes_home}/runtime/claude-seo}"
+mkdir -p "${CLAUDE_SEO_DATA_DIR}"
+
+if [[ ! -x "${launcher_dir}/claude-seo" ]]; then
+    echo "Claude SEO launcher is missing next to hermes-seo. Reinstall from the fork." >&2
+    exit 2
+fi
+
+exec "${launcher_dir}/claude-seo" "$@"

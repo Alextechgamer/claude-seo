@@ -2,10 +2,11 @@
 
 > For **Cursor**, **Cursor Cloud Agents**, **Google Antigravity**, **Gemini CLI**,
 > **Grok Build**,
-> **OpenAI Codex CLI**, **Cline**, **Aider**, and any other agent harness that
-> reads project-root agent instructions.
+> **OpenAI Codex CLI**, **Cline**, **Aider**, **Hermes Agent**, and any other
+> agent harness that reads project-root agent instructions.
 >
 > Claude Code users: see `CLAUDE.md` instead.
+> Hermes Agent users: see `HERMES.md` (any model; `bash install-hermes.sh`).
 
 ## Cross-platform portability (v2.0.0)
 
@@ -33,21 +34,23 @@ descriptive comments) that other harnesses may ignore but do not reject.
 | **OpenAI Codex CLI** | Reads `AGENTS.md` from project root. Bash tools work as documented; some Claude-specific tool names (Read/Write/Edit) are aliased to Codex equivalents transparently. |
 | **Cline** | Loads `AGENTS.md` from project root. Skills appear as system messages; subagent delegation falls back to in-context expansion. |
 | **Aider** | Reads `AGENTS.md` if present; otherwise falls back to README. Aider does not support sub-agent dispatch; the seo-* skills run inline. |
+| **Hermes Agent** | Reads `HERMES.md` (preferred) then this file. Install with `bash install-hermes.sh`. Skills inherit the current Hermes session model — do not pin opus/sonnet/haiku. Run tools through `./scripts/hermes-seo`. Subagents are `delegate_task` children. |
 
 ### Tool-name compatibility
 
 Where claude-seo skills mention Claude Code tools (`Read`, `Write`, `Edit`,
 `Bash`, `Glob`, `Grep`, `WebFetch`), each harness typically has an equivalent:
 
-| Claude Code | Codex | Cline | Aider | Cursor / Antigravity |
-|---|---|---|---|---|
-| Read       | read_file        | read_file       | (inline)        | read |
-| Write      | write_file       | write_file      | /add then edit  | write |
-| Edit       | apply_diff       | replace_in_file | /edit           | edit |
-| Bash       | bash             | execute_command | /run            | shell |
-| Glob       | glob             | search_files    | (inline)        | find |
-| Grep       | grep             | search_files    | /grep           | grep |
-| WebFetch   | fetch / browse   | (browser tool)  | (n/a)           | fetch |
+| Claude Code | Codex | Cline | Aider | Cursor / Antigravity | Hermes |
+|---|---|---|---|---|---|
+| Read       | read_file        | read_file       | (inline)        | read  | read_file |
+| Write      | write_file       | write_file      | /add then edit  | write | write_file |
+| Edit       | apply_diff       | replace_in_file | /edit           | edit  | patch |
+| Bash       | bash             | execute_command | /run            | shell | terminal |
+| Glob       | glob             | search_files    | (inline)        | find  | search_files |
+| Grep       | grep             | search_files    | /grep           | grep  | search_files |
+| WebFetch   | fetch / browse   | (browser tool)  | (n/a)           | fetch | web_extract |
+| Task       | (subagent)       | (inline)        | (inline)        | (varies) | delegate_task |
 
 These mappings are automatic in most harnesses; we list them for transparency
 in case a recipe needs a specific call.

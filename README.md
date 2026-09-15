@@ -28,6 +28,8 @@
 Google Search Console for a site started 23 March 2026 and run on this workflow: total clicks and impressions across its first three months, through 12 June 2026.
 
 > Using Codex instead of Claude Code? Use [Codex SEO](https://github.com/AgriciDaniel/codex-seo), the Codex-first port with TOML agents, plugin packaging, deterministic runners, and the same SEO workflow surface.
+>
+> Using [Hermes Agent](https://github.com/NousResearch/hermes-agent)? This fork's `hermes` branch installs with `bash install-hermes.sh` and inherits whatever model Hermes is running. See [HERMES.md](HERMES.md).
 
 ## Who this is for
 
@@ -116,6 +118,19 @@ powershell -ExecutionPolicy Bypass -File claude-seo\install.ps1
 ```
 
 > **Why `git clone` instead of `irm | iex`?** Claude Code's own security guardrails flag `irm ... | iex` as a supply chain risk: downloading and executing remote code without verification. The `git clone` approach lets you inspect `claude-seo\install.ps1` before running it.
+
+### Hermes Agent (any model)
+
+```bash
+git clone --branch hermes https://github.com/Alextechgamer/claude-seo.git
+cd claude-seo
+bash install-hermes.sh
+```
+
+Skills land in `$HERMES_HOME/skills/software-development/`. The isolated
+Python runtime lives under `$HERMES_HOME/runtime/claude-seo`. Subagents do
+not pin Opus or Sonnet — they use the current Hermes session model. Full
+notes: [HERMES.md](HERMES.md).
 
 ## Quick Start
 

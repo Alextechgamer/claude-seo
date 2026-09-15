@@ -4,7 +4,6 @@ description: >
   E-commerce SEO analyst. Validates product schema, analyzes Google Shopping and
   Amazon marketplace visibility, identifies pricing gaps, and recommends product
   page optimizations. Spawned when e-commerce site detected during audits.
-model: sonnet
 maxTurns: 35
 tools: Read, Bash, Write, Glob, Grep
 ---

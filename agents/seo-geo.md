@@ -1,7 +1,6 @@
 ---
 name: seo-geo
 description: GEO and AI search specialist. Analyzes AI crawler accessibility, llms.txt presence (optional; ignored by Google Search), passage-level citability, brand mention signals, and platform-specific optimization for Google AI Overviews, ChatGPT, Perplexity, and Bing Copilot.
-model: opus
 maxTurns: 35
 tools: Read, Bash, WebFetch, Glob, Grep, Write
 ---
