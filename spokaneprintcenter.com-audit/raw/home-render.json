@@ -1,0 +1,32 @@
+{
+  "url": "https://spokaneprintcenter.com",
+  "status_code": null,
+  "content": null,
+  "raw_content": null,
+  "is_spa": null,
+  "extracted_text": null,
+  "publication_date": null,
+  "accessibility_tree": null,
+  "accessibility_error": null,
+  "accessibility_partial": false,
+  "headers": {},
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": null,
+  "error": "raw fetch failed: Refusing configured HTTP proxy '127.0.0.1': blocked hostname 127.0.0.1. Point the proxy environment variable at a publicly routable address, or unset it.",
+  "structured_data": {
+    "block_count": 0,
+    "processed_count": 0,
+    "total_bytes": 0,
+    "truncated": false,
+    "blocks": []
+  },
+  "truncation": {
+    "limit": null,
+    "fields": {}
+  },
+  "output_written": false
+}
